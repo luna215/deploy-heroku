@@ -4,9 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-        "start": "node app.js"
+    "start": "JUNIT_REPORT_PATH=test-result/result.xml JUNIT_REPORT_STACK=1 mocha --timeout 25000 --colors --reporter mocha-jenkins-reporter || tru"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "express": "^4.17.1",
+    "mocha": "^7.0.1",
+    "mocha-jenkins-reporter": "^0.4.2",
+    "supertest": "^4.0.2"
+  }
 }
