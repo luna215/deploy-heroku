@@ -1,10 +1,37 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+
+const { bookRouter } = require('./book.routes');
 const app = express();
+const port = 3000;
+
+mongoose.connect(`mongodb://localhost/27018`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+const db = mongoose.connection;
+if(!db) {
+  console.log('Error connecting db');
+} else {
+  console.log('Db connected successfully');
+}
+
+app.use(morgan('combined'));
+
+// parse application/josn and look for raw text
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded(({extended: true})));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: 'application/json'}));
+
+app.use(bookRouter);
 
 app.get('/', function(req, res) {
-  res.send('hello world');
+  res.json({ message: 'Welcome to our Bookstore!'});
 });
 
-app.listen(process.env.port || 3000);
+app.listen(process.env.port || port);
 
-module.exports = app;
+module.exports = app; // for testing
