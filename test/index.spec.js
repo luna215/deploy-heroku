@@ -6,3 +6,4 @@ describe('test', () => {
         expect('hello world').to.equal('hello world');
     });
 });
+
