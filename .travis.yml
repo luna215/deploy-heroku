@@ -1,6 +1,17 @@
 language: node_js
 node_js:
-    - "stable"
-    cache:
-        directories:
-            - "node_modules"
+- "12"
+
+deploy:
+  provider: script
+  script: "npm start"
+  skip_cleanup: true
+  on:
+    tags: true
+
+notifications:
+  email:
+    recipients:
+    - paulluna0215@gmail.com
+    on_success: change
+    on_failure: always
