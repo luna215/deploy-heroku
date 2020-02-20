@@ -6,7 +6,8 @@ deploy:
   provider: script
   script: npm test
   skip_cleanup: true
-
+  on:
+    tags: false
 
 notifications:
   email:
