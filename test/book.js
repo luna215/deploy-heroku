@@ -39,4 +39,27 @@ describe('Books', () => {
         });
     });
 
+
+    /**
+     * Test the /POST route
+     */
+    describe('/POST book', function() {
+        it('it should not POST a book without pages field', function(done) {
+            const book = {
+                title: 'The Lord of the Rings',
+                author: 'J.R.R Tolkien',
+                year: 1954
+            }
+            chai.request(server)
+                .post('/book')
+                .send(book)
+                .end(function (err, res) {
+                    res.should.have.status(200);
+                    res.body.should.be.a('object');
+                    res.body.should.have.property('errors');
+                    res.body.errors.pages.should.have.property('kind').eql('required');
+                    done();
+                });
+        });
+    })
 });
