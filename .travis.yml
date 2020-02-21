@@ -4,7 +4,7 @@ node_js:
 services: mongodb
 deploy:
   provider: script
-  script: npm test
+  script: npm start
   skip_cleanup: true
   on:
     tags: false
