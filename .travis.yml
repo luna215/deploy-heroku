@@ -1,7 +1,8 @@
 language: node_js
+
 node_js:
     - "12"
-services: mongodb
+
 deploy:
   provider: script
   script: npm start
