@@ -7,10 +7,15 @@ const { bookRouter } = require('./book.routes');
 const app = express();
 const port = 3000;
 
-mongoose.connect(`mongodb://localhost/27018`, {
+mongoose.connect(`mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0-xbk8i.mongodb.net/test?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
+// mongoose.connect(`mongodb://localhost/27018`, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// });
+
 const db = mongoose.connection;
 if(!db) {
   console.log('Error connecting db');
