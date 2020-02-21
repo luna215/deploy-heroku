@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 const { bookRouter } = require('./book.routes');
 const app = express();
-const port = 3000;
+const port = 8080;
 
 mongoose.connect(`mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0-xbk8i.mongodb.net/test?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
