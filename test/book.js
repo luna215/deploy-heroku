@@ -7,7 +7,7 @@ const Book = require('../model/book');
 // Require the dev-dependencies
 const chai = require('chai');
 const chaiHttp = require("chai-http");
-const server = require('../app');
+const server = require('./mock.server');
 const should = chai.should();
 
 chai.use(chaiHttp);

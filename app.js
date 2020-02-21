@@ -13,6 +13,7 @@ mongoose.connect(`mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MO
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
+
 // mongoose.connect(`mongodb://localhost/27018`, {
 //     useNewUrlParser: true,
 //     useUnifiedTopology: true
@@ -40,5 +41,3 @@ app.get('/', function(req, res) {
 });
 
 app.listen(process.env.port || port);
-
-module.exports = app; // for testing
