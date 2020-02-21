@@ -11,6 +11,7 @@ mongoose.connect(`mongodb://localhost/27018`, {
     useUnifiedTopology: true
 });
 
+
 const db = mongoose.connection;
 if(!db) {
   console.log('Error connecting db');
